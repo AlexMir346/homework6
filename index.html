@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //# Завдання №1
+      //Функція конструктор
+      function Person(name, age, hobby) {
+        // Властивості екземпляра
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+      }
+      //екземпляри
+      const person1 = new Person('Alex', 32, 'Swimming');
+      const person2 = new Person('Nick', 15, 'Football');
+      const person3 = new Person('Lora', 18, 'Gym');
+      const person4 = new Person('Dora', 35, 'Tennis');
+      const person5 = new Person('Jen', 23, 'Hockey');
+      //Масив екземплярів
+      const people = [person1, person2, person3, person4, person5];
+
+      console.log(people);
+
+      function sortByAge(arrayOfpeople) {
+        arrayOfpeople.sort((a, b) => {
+          return a.age > b.age ? 1 : -1;
+        });
+      }
+
+      sortByAge(people);
+
+      for (let i = 0; i < people.length; i++) {
+        document.write(`Person ${people[i].name} is ${people[i].age} years old. <br/> <hr>`);
+      }
+
+      //# Завдання №2
+
+      function Human(name, food) {
+        this.name = name;
+        this.food = food;
+
+        //метод функції конструктора
+        this.favoriteFood = function () {
+          document.write(
+            `Hello, my name is ${this.name}, and my favorite food is ${this.food} <br/>`,
+          );
+        };
+      }
+
+      Human.prototype.letsEat = function () {
+        return `Hey ${this.name}. Lets it some ${this.food} <br/> <hr>`;
+      };
+
+      //Екземпляр
+      const human1 = new Human('David', 'Pizza');
+      const human2 = new Human('Rachel', 'Ice-cream');
+
+      document.write(human1.letsEat());
+
+      human1.favoriteFood();
+      human2.favoriteFood();
+    </script>
+  </body>
+</html>
